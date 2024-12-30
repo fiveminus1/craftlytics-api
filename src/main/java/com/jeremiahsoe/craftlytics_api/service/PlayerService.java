@@ -1,7 +1,7 @@
-package com.jeremiahsoe.craftlyticsapi.service;
+package com.jeremiahsoe.craftlytics_api.service;
 
-import com.jeremiahsoe.craftlyticsapi.model.Player;
-import com.jeremiahsoe.craftlyticsapi.repository.PlayerRepository;
+import com.jeremiahsoe.craftlytics_api.model.Player;
+import com.jeremiahsoe.craftlytics_api.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

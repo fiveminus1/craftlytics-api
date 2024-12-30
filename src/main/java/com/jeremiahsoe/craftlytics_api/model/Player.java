@@ -1,4 +1,4 @@
-package com.jeremiahsoe.craftlyticsapi.model;
+package com.jeremiahsoe.craftlytics_api.model;
 
 import jakarta.persistence.*;
 

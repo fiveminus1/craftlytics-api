@@ -1,4 +1,4 @@
-package com.jeremiahsoe.craftlyticsapi;
+package com.jeremiahsoe.craftlytics_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

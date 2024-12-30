@@ -1,7 +1,7 @@
-package com.jeremiahsoe.craftlyticsapi.controller;
+package com.jeremiahsoe.craftlytics_api.controller;
 
-import com.jeremiahsoe.craftlyticsapi.model.Player;
-import com.jeremiahsoe.craftlyticsapi.service.PlayerService;
+import com.jeremiahsoe.craftlytics_api.model.Player;
+import com.jeremiahsoe.craftlytics_api.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
