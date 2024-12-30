@@ -10,9 +10,7 @@ public class BiomeExploration {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(unique = true, nullable = false)
     private String playerUuid;
-
     private String biomeName;
     private String location;
     private LocalDateTime timestamp;
@@ -36,9 +34,6 @@ public class BiomeExploration {
 
 
     //SETTERS
-    public void setId(Long id){
-        this.id = id;
-    }
     public void setPlayerUuid(String playerUuid){
         this.playerUuid = playerUuid;
     }
