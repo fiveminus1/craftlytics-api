@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,19 +32,21 @@ public class PlayerService {
         return playerRepository.save(player);
     }
 
-    public Player getPlayerByUuid(String playerUuid){
-        return playerRepository.findByPlayerUuid(playerUuid);
-    }
-
-    public Optional<Player> getPlayerByUsername(String username){
-        return playerRepository.findByPlayerName(username);
-    }
-
     public PlayerKill logPlayerKill(String playerUuid, String killedPlayerUuid){
         PlayerKill playerKill = new PlayerKill();
         playerKill.setPlayerUuid(playerUuid);
         playerKill.setKilledPlayerUuid(killedPlayerUuid);
         playerKill.setTimestamp(LocalDateTime.now());
         return playerKillRepository.save(playerKill);
+    }
+
+
+
+    public Optional<Player> getPlayerByUsername(String username){
+        return playerRepository.findByPlayerName(username);
+    }
+
+    public List<PlayerKill> getKillsByUuid(String uuid){
+        return playerKillRepository.findByPlayerUuid(uuid);
     }
 }

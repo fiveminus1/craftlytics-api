@@ -21,11 +21,6 @@ public class PlayerController {
         return playerService.updateOrInsertPlayer(playerUuid, playerName);
     }
 
-//    @GetMapping("/{uuid}")
-//    public Player getPlayerByUuid(@PathVariable String uuid){
-//        return playerService.getPlayerByUuid(uuid);
-//    }
-
     @GetMapping("/{username}")
     public ResponseEntity<?> getPlayerByUsername(@PathVariable String username){
         Optional<Player> player = playerService.getPlayerByUsername(username);
