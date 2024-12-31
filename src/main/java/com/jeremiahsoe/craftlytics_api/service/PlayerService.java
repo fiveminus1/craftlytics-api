@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -32,6 +33,10 @@ public class PlayerService {
 
     public Player getPlayerByUuid(String playerUuid){
         return playerRepository.findByPlayerUuid(playerUuid);
+    }
+
+    public Optional<Player> getPlayerByUsername(String username){
+        return playerRepository.findByPlayerName(username);
     }
 
     public PlayerKill logPlayerKill(String playerUuid, String killedPlayerUuid){

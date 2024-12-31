@@ -3,7 +3,10 @@ package com.jeremiahsoe.craftlytics_api.controller;
 import com.jeremiahsoe.craftlytics_api.model.Player;
 import com.jeremiahsoe.craftlytics_api.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 
 @RestController
@@ -22,4 +25,16 @@ public class PlayerController {
     public Player getPlayerByUuid(@PathVariable String uuid){
         return playerService.getPlayerByUuid(uuid);
     }
+
+    @GetMapping("/username/{username}")
+    public ResponseEntity<?> getPlayerByUsername(@PathVariable String username){
+        Optional<Player> player = playerService.getPlayerByUsername(username);
+        if(player.isPresent()){
+            return ResponseEntity.ok(player.get());
+        }
+        else{
+            return ResponseEntity.status(404).body("Player not found");
+        }
+    }
+
 }
