@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/biomes_explored")
+@RequestMapping("/api/biomes-explored")
 @CrossOrigin(origins="http://localhost:3000")
 public class BiomeExplorationController {
     @Autowired
