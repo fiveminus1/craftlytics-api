@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/player-kills")
+@CrossOrigin(origins="http://localhost:3000")
 public class PlayerKillController {
     @Autowired
     private PlayerService playerService;

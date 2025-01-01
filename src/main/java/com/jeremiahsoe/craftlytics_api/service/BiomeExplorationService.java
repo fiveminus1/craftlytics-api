@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class BiomeExplorationService {
@@ -19,5 +20,9 @@ public class BiomeExplorationService {
         exploration.setLocation(location);
         exploration.setTimestamp(LocalDateTime.now());
         return biomeExplorationRepository.save(exploration);
+    }
+
+    public List<BiomeExploration> getBiomesExploredByUuid(String uuid){
+        return biomeExplorationRepository.findByPlayerUuid(uuid);
     }
 }
