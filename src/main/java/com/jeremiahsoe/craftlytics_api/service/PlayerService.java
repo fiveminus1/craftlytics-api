@@ -46,6 +46,10 @@ public class PlayerService {
         return playerRepository.findByPlayerName(username);
     }
 
+    public Player getPlayerByUuid(String uuid){
+        return playerRepository.findByPlayerUuid(uuid);
+    }
+
     public List<PlayerKill> getKillsByUuid(String uuid){
         return playerKillRepository.findByPlayerUuid(uuid);
     }
