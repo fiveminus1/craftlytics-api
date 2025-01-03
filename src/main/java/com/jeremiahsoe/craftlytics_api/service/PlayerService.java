@@ -21,12 +21,15 @@ public class PlayerService {
 
 
     public Player updateOrInsertPlayer(String playerUuid, String playerName){
-        Player player = playerRepository.findByPlayerUuid(playerUuid);
-        if(player == null){
-            player = new Player();
-            player.setPlayerUuid(playerUuid);
-            player.setFirstSeen(LocalDateTime.now());
-        }
+        Optional<Player> optionalPlayer = playerRepository.findByPlayerUuid(playerUuid);
+
+        Player player = optionalPlayer.orElseGet(() ->{
+            Player newPlayer = new Player();
+            newPlayer.setPlayerUuid(playerUuid);
+            newPlayer.setFirstSeen(LocalDateTime.now());
+            return newPlayer;
+        });
+
         player.setPlayerName(playerName);
         player.setLastSeen(LocalDateTime.now());
         return playerRepository.save(player);
@@ -46,7 +49,7 @@ public class PlayerService {
         return playerRepository.findByPlayerName(username);
     }
 
-    public Player getPlayerByUuid(String uuid){
+    public Optional<Player> getPlayerByUuid(String uuid){
         return playerRepository.findByPlayerUuid(uuid);
     }
 

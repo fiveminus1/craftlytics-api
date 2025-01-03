@@ -33,8 +33,14 @@ public class PlayerController {
     }
 
     @GetMapping("/uuid/{uuid}")
-    public Player getPlayerByUuid(@PathVariable String uuid){
-        return playerService.getPlayerByUuid(uuid);
+    public ResponseEntity<?> getPlayerByUuid(@PathVariable String uuid){
+        Optional<Player> player = playerService.getPlayerByUuid(uuid);
+        if(player.isPresent()){
+            return ResponseEntity.ok(player.get());
+        }
+        else{
+            return ResponseEntity.status(404).body("Player not found");
+        }
     }
 
 }
