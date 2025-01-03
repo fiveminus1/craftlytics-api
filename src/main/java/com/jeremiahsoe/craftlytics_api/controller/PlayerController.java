@@ -32,7 +32,7 @@ public class PlayerController {
         }
     }
 
-    @GetMapping("/{uuid}")
+    @GetMapping("/uuid/{uuid}")
     public Player getPlayerByUuid(@PathVariable String uuid){
         return playerService.getPlayerByUuid(uuid);
     }
